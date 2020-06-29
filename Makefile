@@ -10,6 +10,7 @@ logs:
 
 start: build
 		docker run --rm \
+			--init \
     		--volume "$(shell pwd)/scripts:/scripts:ro" \
     		--publish 8043:8080 \
     		--env "NODE_ENV=production" \

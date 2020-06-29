@@ -4,6 +4,12 @@ const http = require('http');
 const port = 8080;
 const host = '0.0.0.0';
 
+process.on('uncaughtException', function (err) {
+    console.error((new Date).toUTCString() + ' uncaughtException:', err.message)
+    console.error(err.stack)
+    process.exit(1)
+})
+
 const server = http.createServer( function(req, res) {
 
     let body = '';
